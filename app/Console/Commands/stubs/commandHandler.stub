@@ -1,0 +1,21 @@
+<?php
+namespace Domain\Command\Handlers;
+
+class DummyClass
+{
+    /**
+     *
+     */
+    public function __construct()
+    {
+       //
+    }
+
+    /**
+     *
+     */
+    public function __invoke()
+    {
+        //
+    }
+}

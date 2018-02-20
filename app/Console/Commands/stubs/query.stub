@@ -1,0 +1,13 @@
+<?php
+namespace Domain\Query;
+
+class DummyClass
+{
+     /**
+     * @param
+     */
+    public function __construct()
+    {
+       //
+    }
+}
