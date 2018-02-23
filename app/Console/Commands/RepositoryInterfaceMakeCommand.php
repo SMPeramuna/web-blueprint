@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class RepositoryInterfaceMakeCommand extends GeneratorCommand
+class RepositoryInterfaceMakeCommand extends RootGeneratorCommand
 {
     /**
      * The console command name.
@@ -37,14 +37,9 @@ class RepositoryInterfaceMakeCommand extends GeneratorCommand
         return __DIR__.'/stubs/repositoryInterface.stub';
     }
 
-    /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace)
+
+    protected function getEntityNamespace()
     {
-        return  $rootNamespace.'\Domain\Repository';
+        return  '\Repository\Contracts';
     }
 }

@@ -2,9 +2,7 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\GeneratorCommand;
-
-class QueryMakeCommand extends GeneratorCommand
+class QueryMakeCommand extends RootGeneratorCommand
 {
     /**
      * The console command name.
@@ -31,9 +29,9 @@ class QueryMakeCommand extends GeneratorCommand
     {
         parent::handle();
 
-        $this->call('make:cqrs:query-handler', [
-            'name' => $this->argument('name')."Handler"
-        ]);
+//        $this->call('make:cqrs:query-handler', [
+//            'name' => $this->argument('name')."Handler"
+//        ]);
     }
 
     /**
@@ -46,14 +44,8 @@ class QueryMakeCommand extends GeneratorCommand
         return __DIR__.'/stubs/query.stub';
     }
 
-    /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getEntityNamespace()
     {
-        return  $rootNamespace.'\Domain\Query';
+        return  '\Query';
     }
 }

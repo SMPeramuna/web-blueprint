@@ -2,9 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\GeneratorCommand;
 
-class CommandMakeCommand extends GeneratorCommand
+class CommandMakeCommand extends RootGeneratorCommand
 {
     /**
      * The console command name.
@@ -27,14 +26,11 @@ class CommandMakeCommand extends GeneratorCommand
      */
     protected $type = 'Command';
 
-    public function handle()
-    {
-        parent::handle();
+    /**
+     * @var string
+     */
+    protected $module;
 
-        $this->call('make:cqrs:command-handler', [
-            'name' => $this->argument('name')."Handler"
-        ]);
-    }
 
     /**
      * Get the stub file for the generator.
@@ -46,14 +42,10 @@ class CommandMakeCommand extends GeneratorCommand
         return __DIR__.'/stubs/command.stub';
     }
 
-    /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace)
+
+    protected function getEntityNamespace()
     {
-        return  $rootNamespace.'\Domain\Command';
+        return  '\Command';
     }
+
 }

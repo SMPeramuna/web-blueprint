@@ -2,9 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\GeneratorCommand;
 
-class QueryHandlerMakeCommand extends GeneratorCommand
+class QueryHandlerMakeCommand extends RootGeneratorCommand
 {
     /**
      * The console command name.
@@ -37,14 +36,8 @@ class QueryHandlerMakeCommand extends GeneratorCommand
         return __DIR__.'/stubs/queryHandler.stub';
     }
 
-    /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getEntityNamespace()
     {
-        return  $rootNamespace.'\Domain\Query\Handlers';
+        return  '\Query\Handlers';
     }
 }

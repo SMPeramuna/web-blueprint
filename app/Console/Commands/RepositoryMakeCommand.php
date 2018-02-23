@@ -3,9 +3,8 @@
 namespace App\Console\Commands;
 
 
-use Illuminate\Console\GeneratorCommand;
 
-class RepositoryMakeCommand extends GeneratorCommand
+class RepositoryMakeCommand extends RootGeneratorCommand
 {
     /**
      * The console command name.
@@ -32,9 +31,9 @@ class RepositoryMakeCommand extends GeneratorCommand
     {
         parent::handle();
 
-        $this->call('make:repository-interface', [
-            'name' => $this->argument('name')."Interface"
-        ]);
+//        $this->call('make:repository-interface', [
+//            'name' => $this->argument('name')."Interface"
+//        ]);
     }
     /**
      * Get the stub file for the generator.
@@ -46,14 +45,8 @@ class RepositoryMakeCommand extends GeneratorCommand
         return __DIR__.'/stubs/repository.stub';
     }
 
-    /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getEntityNamespace()
     {
-        return  $rootNamespace.'\Repositories';
+        return  '\Repository';
     }
 }
