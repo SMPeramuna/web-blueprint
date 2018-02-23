@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories;
+namespace DummyNamespace;
 
 use Domain\Repository\DummyClassInterface;
 

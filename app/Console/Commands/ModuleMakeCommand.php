@@ -12,7 +12,7 @@ class ModuleMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $signature = 'make:module {name}';
+    protected $signature = 'make:module';
 
     /**
      * The console command description.
@@ -38,18 +38,20 @@ class ModuleMakeCommand extends GeneratorCommand
      */
     public function handle()
     {
+        $moduleName = $this->ask('Please specify the module name [Root\\ <module-name>]');
         foreach ($this->folderStructure as $folder) {
-           $this->makeDirectory($this->getFolderPath($folder));
+           $this->makeDirectory($this->getFolderPath($moduleName, $folder));
         }
     }
 
     /**
+     * @param string $module
      * @param string $folderPath
      * @return string
      */
-    private function getFolderPath($folderPath)
+    private function getFolderPath($module, $folderPath)
     {
-        return $this->getPath($this->getNameInput()).$folderPath."/.gitkeep";
+        return $this->getPath($module).$folderPath."/.gitkeep";
     }
 
     protected function getPath($fqns)

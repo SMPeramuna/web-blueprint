@@ -1,5 +1,5 @@
 <?php
-namespace Domain\Query\Handlers;
+namespace DummyNamespace;
 
 class DummyClass
 {

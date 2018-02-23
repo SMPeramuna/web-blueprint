@@ -1,5 +1,5 @@
 <?php
-namespace Domain\Command;
+namespace DummyNamespace;
 
 class DummyClass
 {
